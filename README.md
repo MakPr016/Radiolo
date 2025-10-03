@@ -1,2 +1,2 @@
-# MediScan-AI
+# Radiolo
 AI Medical Report Analyser 
