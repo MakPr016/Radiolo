@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { encrypt, decrypt, compress, fileToBase64, arrayBufferToBase64 } from '@/lib/crypto';
+import { encrypt, decrypt, compress, fileToBase64, arrayBufferToBase64 } from '@/lib/cryptoPipeline1';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -107,7 +107,7 @@ export default function Home() {
             const compressedB64 = arrayBufferToBase64(compressed);
             const encrypted = encrypt(compressedB64, secretKey);
             
-            const response = await fetch('/api/analyze', {
+            const response = await fetch('/api/analyze-radiology', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

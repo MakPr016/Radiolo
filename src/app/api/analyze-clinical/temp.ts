@@ -2,15 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    console.log('API Route: Received request');
-    
     const body = await request.json();
-    console.log('API Route: Body parsed, ciphertext length:', body.ciphertext?.length);
     
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-    console.log('API Route: Calling FastAPI at:', `${apiUrl}/analyze-secure`);
+    const apiUrl = process.env.NEXT_PUBLIC_LAB_API_URL || 'https://localhost:8000';
     
-    const response = await fetch(`${apiUrl}/analyze-secure`, {
+    const response = await fetch(`${apiUrl}/analyze-lab-secure`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -18,12 +14,8 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify(body)
     });
 
-    console.log('API Route: FastAPI response status:', response.status);
-
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('API Route: FastAPI error:', errorText);
-      
       try {
         const errorData = JSON.parse(errorText);
         return NextResponse.json(
@@ -39,15 +31,10 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await response.json();
-    console.log('API Route: Success, response ciphertext length:', data.ciphertext?.length);
-    
     return NextResponse.json(data);
     
   } catch (error) {
-    console.error('API Route Error:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    console.error('API Route Error Details:', errorMessage);
-    
     return NextResponse.json(
       { error: `Internal server error: ${errorMessage}` },
       { status: 500 }

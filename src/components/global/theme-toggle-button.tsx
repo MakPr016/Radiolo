@@ -207,6 +207,7 @@ export const ThemeToggleButton = ({
 export const useThemeTransition = () => {
   const startTransition = useCallback((updateFn: () => void) => {
     if ('startViewTransition' in document) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (document as any).startViewTransition(updateFn);
     } else {
       updateFn();
