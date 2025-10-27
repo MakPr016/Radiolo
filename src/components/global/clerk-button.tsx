@@ -8,18 +8,20 @@ import { Button } from '../ui/button'
 
 const ClerkButton = () => {
     return (
-        <div className='flex gap-1 items-center justify-center'>
+        <div className='flex gap-3 items-center justify-center'>
             <SignedOut>
                 <SignUpButton>
-                    <Button className='py-5 px-4'>Get Started</Button>
+                    <Button className='bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium py-5 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200'>
+                        Get Started
+                    </Button>
                 </SignUpButton>
             </SignedOut>
             <SignedIn>
                 <Link
                     href="/dashboard"
-                    className="relative inline-flex h-10 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-                >
-                        Dashboard
+                    className='inline-flex items-center justify-center px-6 py-2.5 bg-rr-500 text-white font-medium rounded-lg hover:bg-rr-600 transition-all duration-200 shadow-md hover:shadow-lg'
+                > 
+                    Dashboard
                 </Link>
             </SignedIn>
         </div>

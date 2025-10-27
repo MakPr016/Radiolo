@@ -52,6 +52,19 @@
   --color-purple-800: #6821a8;
   --color-purple-900: #541c87;
   --color-purple-950: #380764;
+  --color-rr-50: #fff1f3;
+  --color-rr-100: #ffe4e9;
+  --color-rr-200: #fecdd5;
+  --color-rr-300: #fda4b3;
+  --color-rr-400: #fb7189;
+  --color-rr-500: #f43f5e;
+  --color-rr-600: #e11d3f;
+  --color-rr-700: #be122f;
+  --color-rr-800: #9f122a;
+  --color-rr-900: #881327;
+  --color-rr-950: #4c0511;
+
+
 }
 
 :root {

@@ -1,3 +1,10 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 export default function FAQs() {
   const faqs = [
     {
@@ -30,14 +37,18 @@ export default function FAQs() {
           <p className="text-lg text-gray-600">Common questions about our medical AI platform</p>
         </div>
 
-        <div className="space-y-6">
+        <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-gray-200 pb-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{faq.question}</h3>
-              <p className="text-gray-600">{faq.answer}</p>
-            </div>
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger className="text-left text-lg font-semibold text-gray-900">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-600">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
 
         <div className="text-center mt-12">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Need more help?</h3>

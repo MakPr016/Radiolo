@@ -1,8 +1,25 @@
+'use client'
+
 import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function Hero() {
+    const sectionRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end start"]
+    });
+
+    const leftCardY = useTransform(scrollYProgress, [0, 1], [0, -150]);
+    const rightCard1Y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+    const rightCard2Y = useTransform(scrollYProgress, [0, 1], [0, -200]);
+
     return (
-        <section className="bg-gradient-to-b from-white to-purple-100 py-40">
+        <section 
+            ref={sectionRef}
+            className="bg-gradient-to-b from-white to-purple-100 py-40 relative overflow-hidden"
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
@@ -22,45 +39,102 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className="relative flex justify-center items-center">
-                    <div className="absolute left-0 top-1/4 bg-white rounded-lg shadow-lg p-6 hidden lg:block">
-                        <h3 className="text-sm font-semibold mb-4">Score</h3>
-                        <div className="flex space-x-2 items-end h-32">
-                            {[40, 60, 80, 50, 90, 70, 85].map((height, i) => (
-                                <div key={i} className="w-8 bg-red-500 rounded-t" style={{ height: `${height}%` }}></div>
+                <div className="relative flex justify-center items-center min-h-[800px]">
+                    <motion.div 
+                        style={{ y: leftCardY }}
+                        className="absolute left-[5%] top-[15%] bg-white rounded-2xl shadow-xl p-6 w-[280px] hidden lg:block"
+                    >
+                        <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-sm font-semibold text-gray-700">Score</h3>
+                            <select className="text-xs border border-gray-200 rounded px-2 py-1">
+                                <option>Monthly</option>
+                            </select>
+                        </div>
+                        <div className="flex space-x-2 items-end h-40">
+                            {[
+                                { height: 45, color: 'bg-red-100' },
+                                { height: 70, color: 'bg-red-500' },
+                                { height: 85, color: 'bg-red-500' },
+                                { height: 95, color: 'bg-red-500' },
+                                { height: 60, color: 'bg-red-500' },
+                                { height: 75, color: 'bg-red-500' },
+                                { height: 50, color: 'bg-red-100' },
+                                { height: 90, color: 'bg-red-500' }
+                            ].map((bar, i) => (
+                                <div 
+                                    key={i} 
+                                    className={`flex-1 ${bar.color} rounded-t-full transition-all duration-300`}
+                                    style={{ height: `${bar.height}%` }}
+                                ></div>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
 
                     <div className="z-10">
-                        <Image src="/assets/phone-mockup.svg" alt="Radiolo App" width={400} height={800} />
+                        <Image 
+                            src="/assets/phone-mockup.svg" 
+                            alt="Radiolo App" 
+                            width={400} 
+                            height={800} 
+                        />
                     </div>
 
-                    <div className="absolute right-0 top-1/4 space-y-4 hidden lg:block">
-                        <div className="bg-white rounded-lg shadow-lg p-4 max-w-xs">
-                            <div className="flex items-center mb-2">
-                                <div className="w-10 h-10 bg-gray-300 rounded-full mr-3"></div>
+                    <div className="absolute right-[5%] top-[10%] space-y-6 hidden lg:block">
+                        <motion.div 
+                            style={{ y: rightCard1Y }}
+                            className="bg-white rounded-2xl shadow-xl p-5 w-[300px]"
+                        >
+                            <div className="flex items-start gap-3">
+                                <div className="w-12 h-12 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full flex-shrink-0 overflow-hidden">
+                                    <img 
+                                        src="/assets/user_float.png" 
+                                        alt="User" 
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
                                 <div>
-                                    <p className="text-sm font-semibold">Al has changed my life</p>
-                                    <p className="text-xs text-gray-500">By Tom M.</p>
+                                    <p className="text-sm font-semibold text-gray-900 mb-1">
+                                        &quot;The AI explained my lab results clearly&quot;
+                                    </p>
+                                    <p className="text-xs text-gray-500">Sofia the First, 32</p>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <div className="bg-white rounded-lg shadow-lg p-6">
-                            <h3 className="text-sm font-semibold mb-4">Score</h3>
+                        <motion.div 
+                            style={{ y: rightCard2Y }}
+                            className="bg-white rounded-2xl shadow-xl p-6 w-[280px]"
+                        >
+                            <h3 className="text-sm font-semibold text-gray-700 mb-6">Score</h3>
                             <div className="flex justify-center">
-                                <div className="relative w-32 h-32">
-                                    <svg className="w-full h-full" viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" strokeWidth="8" />
-                                        <circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" strokeWidth="8" strokeDasharray="283" strokeDashoffset="70" transform="rotate(-90 50 50)" />
+                                <div className="relative w-40 h-40">
+                                    <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                                        <circle 
+                                            cx="50" 
+                                            cy="50" 
+                                            r="40" 
+                                            fill="none" 
+                                            stroke="#e5e7eb" 
+                                            strokeWidth="8" 
+                                        />
+                                        <circle 
+                                            cx="50" 
+                                            cy="50" 
+                                            r="40" 
+                                            fill="none" 
+                                            stroke="#10b981" 
+                                            strokeWidth="8" 
+                                            strokeDasharray="251.2" 
+                                            strokeDashoffset="67.8"
+                                            strokeLinecap="round"
+                                        />
                                     </svg>
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <span className="text-3xl font-bold">73%</span>
+                                        <span className="text-4xl font-bold text-gray-900">73%</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>

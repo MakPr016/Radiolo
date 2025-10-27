@@ -1,10 +1,12 @@
+import { ShieldCheck  } from "lucide-react";
+
 export default function CTA() {
   return (
     <section className="py-20 bg-gradient-to-b from-purple-50 to-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="flex justify-center mb-6">
           <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
-            <span className="text-3xl">🔒</span>
+            <span className="text-3xl"><ShieldCheck /></span>
           </div>
         </div>
         <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to transform your health insights?</h2>
