@@ -5,8 +5,6 @@ import Features from "@/components/LandingPage/Features";
 import Footer from "@/components/LandingPage/Footer";
 import Hero from "@/components/LandingPage/Hero";
 import HowItWorks from "@/components/LandingPage/HowItWorks";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 
 export default function Home() {
   return (

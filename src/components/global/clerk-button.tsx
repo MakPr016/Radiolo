@@ -11,7 +11,7 @@ const ClerkButton = () => {
         <div className='flex gap-3 items-center justify-center'>
             <SignedOut>
                 <SignUpButton>
-                    <Button className='bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium py-5 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200'>
+                    <Button className='bg-rr-500 text-white font-medium py-5 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200'>
                         Get Started
                     </Button>
                 </SignUpButton>
