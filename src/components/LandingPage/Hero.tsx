@@ -16,7 +16,7 @@ export default function Hero() {
     const rightCard2Y = useTransform(scrollYProgress, [0, 1], [0, -200]);
 
     return (
-        <section 
+        <section
             ref={sectionRef}
             className="bg-gradient-to-b from-white to-purple-100 py-40 relative overflow-hidden"
         >
@@ -40,7 +40,7 @@ export default function Hero() {
                 </div>
 
                 <div className="relative flex justify-center items-center min-h-[800px]">
-                    <motion.div 
+                    <motion.div
                         style={{ y: leftCardY }}
                         className="absolute left-[5%] top-[15%] bg-white rounded-2xl shadow-xl p-6 w-[280px] hidden lg:block"
                     >
@@ -61,8 +61,8 @@ export default function Hero() {
                                 { height: 50, color: 'bg-red-100' },
                                 { height: 90, color: 'bg-red-500' }
                             ].map((bar, i) => (
-                                <div 
-                                    key={i} 
+                                <div
+                                    key={i}
                                     className={`flex-1 ${bar.color} rounded-t-full transition-all duration-300`}
                                     style={{ height: `${bar.height}%` }}
                                 ></div>
@@ -71,24 +71,24 @@ export default function Hero() {
                     </motion.div>
 
                     <div className="z-10">
-                        <Image 
-                            src="/assets/phone-mockup.svg" 
-                            alt="Radiolo App" 
-                            width={400} 
-                            height={800} 
+                        <Image
+                            src="phone-mockup.svg"
+                            alt="Radiolo App"
+                            width={400}
+                            height={800}
                         />
                     </div>
 
                     <div className="absolute right-[5%] top-[10%] space-y-6 hidden lg:block">
-                        <motion.div 
+                        <motion.div
                             style={{ y: rightCard1Y }}
                             className="bg-white rounded-2xl shadow-xl p-5 w-[300px]"
                         >
                             <div className="flex items-start gap-3">
                                 <div className="w-12 h-12 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full flex-shrink-0 overflow-hidden">
-                                    <img 
-                                        src="/assets/user_float.png" 
-                                        alt="User" 
+                                    <img
+                                        src="user_float.png"
+                                        alt="User"
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
@@ -101,7 +101,7 @@ export default function Hero() {
                             </div>
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             style={{ y: rightCard2Y }}
                             className="bg-white rounded-2xl shadow-xl p-6 w-[280px]"
                         >
@@ -109,22 +109,22 @@ export default function Hero() {
                             <div className="flex justify-center">
                                 <div className="relative w-40 h-40">
                                     <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                                        <circle 
-                                            cx="50" 
-                                            cy="50" 
-                                            r="40" 
-                                            fill="none" 
-                                            stroke="#e5e7eb" 
-                                            strokeWidth="8" 
+                                        <circle
+                                            cx="50"
+                                            cy="50"
+                                            r="40"
+                                            fill="none"
+                                            stroke="#e5e7eb"
+                                            strokeWidth="8"
                                         />
-                                        <circle 
-                                            cx="50" 
-                                            cy="50" 
-                                            r="40" 
-                                            fill="none" 
-                                            stroke="#10b981" 
-                                            strokeWidth="8" 
-                                            strokeDasharray="251.2" 
+                                        <circle
+                                            cx="50"
+                                            cy="50"
+                                            r="40"
+                                            fill="none"
+                                            stroke="#10b981"
+                                            strokeWidth="8"
+                                            strokeDasharray="251.2"
                                             strokeDashoffset="67.8"
                                             strokeLinecap="round"
                                         />

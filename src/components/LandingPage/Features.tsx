@@ -24,7 +24,7 @@ export default function Features() {
             icon={<Brain className="h-5 w-5 text-rr-600" />}
             title="AI-powered analysis"
             description="Advanced AI analyzes complex medical documents in seconds with precision."
-            imageUrl="/assets/phone-mockup.svg"
+            imageUrl="phone-mockup.svg"
             primaryButton="Get Started"
             secondaryButton="Learn More"
           />
