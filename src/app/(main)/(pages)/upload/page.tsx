@@ -263,6 +263,7 @@ export default function UploadPage() {
                       "cursor-pointer transition-all hover:shadow-lg hover:scale-105",
                       type === docType.id && "ring-2 ring-black dark:ring-white"
                     )}
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     onClick={() => setType(docType.id as any)}
                   >
                     <CardContent className="flex flex-col items-center justify-center p-8 text-center">
